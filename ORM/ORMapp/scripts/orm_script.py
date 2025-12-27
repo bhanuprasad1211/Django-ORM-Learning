@@ -10,14 +10,20 @@ from django.contrib.contenttypes.admin import GenericTabularInline
 
 import time
 import random,itertools
+#run these commands before executing script
+# env) bha:~/DjangoORM/ORM$ sudo systemctl stop postgresql
+# [sudo] password for bhanuprasad: 
+# (env) bha:~/DjangoORM/ORM$ sudo docker start pg_container
 def run() :
-    restaurent=Restaurent.objects.first()
-    comment=Comments.objects.create(
-        text='It is good',
-        content_object=restaurent,
-    )
-    print(comment)
-    print(comment.__dict__)
+    restaurents=Restaurent.objects.first()
+    print(restaurents.ratings.first())
+    # restaurent=Restaurent.objects.first()
+    # comment=Comments.objects.create(
+    #     text='It is good',
+    #     content_object=restaurent,
+    # )
+    # print(comment)
+    # print(comment.__dict__)
     # comment=Comments.objects.first()
     # ctype=comment.content_type
     # model=ctype.get_all_objects_for_this_type(id=comment.object_id)
