@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    {% for restaurent in restaurents %}
+        <p>{{restaurent}}</p>
+            <ul>
+                {% for rating in restaurent.ratings.all %}
+                    <p>--{{rating.rating}}</p>
+                {% endfor %}
+            </ul>
+            
+    {% endfor %}
+    {% for rating in ratings %}
+        <p>{{rating.restaurent.name}}--{{rating}}</p>
+    {% endfor %}
+
+    <button type="submit">Submit</button>
+</form>
+
+{% endblock %}
